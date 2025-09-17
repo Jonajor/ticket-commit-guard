@@ -1,15 +1,72 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.jonajor.ticketcommitguard</id>
-    <name>ticket-commit-guard</name>
-    <vendor>jonajor</vendor>
+    <id>com.jonathan.ticketguard.commitprefix</id>
+    <name>Commit Ticket Prefix Guard</name>
+    <vendor url="https://github.com/Jonajor/ticket-commit-guard">Jonathan</vendor>
+    <version>0.1.0</version>
+    <change-notes><![CDATA[
+      <ul>
+        <li>Initial release: automatically prefixes commit messages with the issue key from the current Git branch.</li>
+        <li>Avoids duplicate prefixes if the message already starts with the key.</li>
+        <li>Trims leading spaces before applying the prefix.</li>
+        <li>Works on Community edition (IC) 2024.3.x.</li>
+      </ul>
+    ]]></change-notes>
+
+    <description><![CDATA[
+      <p>
+        <strong>Ticket Commit Guard</strong> keeps your commit messages compliant by
+        automatically prefixing them with the issue key parsed from the current Git branch name.
+      </p>
+
+      <ul>
+        <li>Extracts the first issue key in the branch name (e.g. <code>ABC-123</code>).</li>
+        <li>Prefixes the commit message only when missing (no duplicates).</li>
+        <li>Preserves your text and trims leading spaces.</li>
+      </ul>
+
+      <p><strong>Supported branch patterns</strong></p>
+      <ul>
+        <li>Jira-style keys: <code>ABC-123</code> anywhere in the branch (e.g., <code>feature/ABC-123-title</code>)</li>
+        <li>Branches without a key are left untouched</li>
+      </ul>
+
+      <table cellspacing="6" cellpadding="2" border="0">
+        <tr>
+          <th>Branch Name</th>
+          <th>Resulting Commit Prefix</th>
+          <th>Example Final Message</th>
+        </tr>
+        <tr>
+          <td><code>feature/ABC-123-fix-video</code></td>
+          <td><code>ABC-123:</code></td>
+          <td><code>ABC-123: fix video page</code></td>
+        </tr>
+        <tr>
+          <td><code>bugfix/ABC-123</code></td>
+          <td><code>ABC-123:</code></td>
+          <td><code>ABC-123: handle null IDs</code></td>
+        </tr>
+        <tr>
+          <td><code>main</code> or <code>master</code></td>
+          <td><em>no action</em></td>
+          <td><code>update docs</code></td>
+        </tr>
+      </table>
+
+      <p style="margin-top:10px;">
+        <em>Tip:</em> Use branch names that include an issue key (e.g., <code>ABC-123</code>).
+        If the current branch has no key, the plugin won’t change the message.
+      </p>
+    ]]></description>
+
+
+    <!-- 2024.2 (242) up to but not including 2024.4 -->
+    <idea-version since-build="242" until-build="243.*"/>
 
     <depends>com.intellij.modules.platform</depends>
-
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.jonajor.ticketcommitguard.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.jonajor.ticketcommitguard.startup.MyProjectActivity" />
+        <checkinHandlerFactory implementation="com.github.jonajor.ticketcommitguard.TicketGuardFactory"/>
     </extensions>
 </idea-plugin>
