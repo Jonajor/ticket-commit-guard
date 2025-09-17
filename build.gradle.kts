@@ -42,7 +42,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.2")
 
     // MockK for Kotlin + static mocking
-    testImplementation("io.mockk:mockk:1.13.11")
+    testImplementation("io.mockk:mockk:1.14.5")
 
     // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
     intellijPlatform {
