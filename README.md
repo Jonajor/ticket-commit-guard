@@ -37,7 +37,7 @@ If no repo or key is found, nothing is changed.
 | Branch name                         | Commit message entered | Final commit message            |
 |------------------------------------|------------------------|---------------------------------|
 | `feature/ABC-123-fix-video`        | `fix player`           | `ABC-123: fix player`           |
-| `bugfix/DARK-7-npe`                | `   handle null`       | `DARK-7: handle null`           |
+| `bugfix/ABC-7-npe`                | `   handle null`       | `ABC-7: handle null`           |
 | `release/v1.2.3`                   | `bump version`         | `bump version` (unchanged)      |
 | `main` / `master`                  | `docs`                 | `docs` (unchanged)              |
 | `ABC-123`                          | `initial`              | `ABC-123: initial`              |
