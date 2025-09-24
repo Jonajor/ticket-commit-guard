@@ -33,6 +33,22 @@ tasks.test {
     useJUnitPlatform()
 }
 
+// build.gradle.kts
+tasks.patchPluginXml {
+    pluginDescription.set(
+        """
+        Automatically prefixes your commit message with the issue key from the current Git branch (e.g., ABC-123: your message).
+        Keeps commits consistent with your tracker with zero extra clicks.
+        
+        Features:
+        - Detects first key via regex [A-Z]+-[0-9]+
+        - Adds prefix only if missing
+        - Trims leading spaces
+        - No-op when no repo/key
+        """.trimIndent()
+    )
+}
+
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
     testImplementation(libs.junit)

@@ -1,16 +1,8 @@
 <idea-plugin>
     <id>com.jonathan.ticketguard.commitprefix</id>
-    <name>Commit Ticket Prefix Guard</name>
-    <vendor url="https://github.com/Jonajor/ticket-commit-guard">Jonathan</vendor>
-    <version>0.1.0</version>
-    <change-notes><![CDATA[
-      <ul>
-        <li>Initial release: automatically prefixes commit messages with the issue key from the current Git branch.</li>
-        <li>Avoids duplicate prefixes if the message already starts with the key.</li>
-        <li>Trims leading spaces before applying the prefix.</li>
-        <li>Works on Community edition (IC) 2024.3.x.</li>
-      </ul>
-    ]]></change-notes>
+    <name>Ticket Commit Guard</name>
+    <vendor email="jonathanaugjorge@gmail.com" url="https://github.com/Jonajor">Jonathan Jorge</vendor>
+    <version>0.0.2</version>
 
     <description><![CDATA[
       <p>
@@ -59,7 +51,6 @@
       </p>
     ]]></description>
 
-
     <!-- 2024.2 (242) up to but not including 2024.4 -->
     <idea-version since-build="242" until-build="243.*"/>
 
@@ -68,5 +59,6 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <checkinHandlerFactory implementation="com.github.jonajor.ticketcommitguard.TicketGuardFactory"/>
+        <postStartupActivity implementation="com.github.jonajor.ticketcommitguard.TicketPushActivity"/>
     </extensions>
 </idea-plugin>
