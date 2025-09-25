@@ -2,7 +2,7 @@
     <id>com.jonathan.ticketguard.commitprefix</id>
     <name>Ticket Commit Guard</name>
     <vendor email="jonathanaugjorge@gmail.com" url="https://github.com/Jonajor">Jonathan Jorge</vendor>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <description><![CDATA[
       <p>
@@ -51,8 +51,8 @@
       </p>
     ]]></description>
 
-    <!-- 2024.2 (242) up to but not including 2024.4 -->
-    <idea-version since-build="242" until-build="243.*"/>
+    <!-- 2024.2 (243) up to but not including 2024.4 -->
+    <idea-version since-build="243" until-build="243.*"/>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>Git4Idea</depends>
