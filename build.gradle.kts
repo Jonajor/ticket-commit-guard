@@ -55,7 +55,7 @@ dependencies {
     testImplementation(libs.opentest4j)
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:6.0.0")
 
     // MockK for Kotlin + static mocking
     testImplementation("io.mockk:mockk:1.13.11")
